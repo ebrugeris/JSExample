@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Change</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh;
+            margin: 0 auto;
+            padding-top: 50px;
+        }
+        .box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .color-box {
+            width: 150px;
+            height: 150px;
+            border: 1px solid gray;
+            margin-top: 20px;
+        }
+        .input-group {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .input-group input {
+            margin-right: 10px;
+        }
+        .button {
+            background-color: green;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        
+        <div class="box">
+            <h2>Color Changing Boxes</h2>
+            <div class="input-group">
+                <input type="text" id="text-left" class="input" placeholder="Enter a colour name">
+                <button id="btn-left" class="button">Change The Colour</button>
+            </div>
+            <div id="div-left" class="color-box"></div>
+        </div>
+        <div class="box">
+            <h2>Color Changing Boxes</h2>
+            <div class="input-group">
+                <input type="text" id="text-center" class="input" placeholder="Enter a colour name">
+                <button id="btn-center" class="button">Change The Colour</button>
+            </div>
+            <div id="div-center" class="color-box"></div>
+        </div>
+        <div class="box">
+            <h2>Color Changing Boxes</h2>
+            <div class="input-group">
+                <input type="text" id="text-right" class="input" placeholder="Enter a colour name">
+                <button id="btn-right" class="button">Change The Colour</button>
+            </div>
+            <div id="div-right" class="color-box"></div>
+        </div>
+    </div>
+
+    <script>
+        function changeColor(inputId, divId) {
+            const color = document.getElementById(inputId).value;
+            document.getElementById(divId).style.backgroundColor = color;
+        }
+        document.getElementById("btn-left").addEventListener("click", function () { changeColor("text-left", "div-left"); });
+        document.getElementById("btn-center").addEventListener("click", function () { changeColor("text-center", "div-center"); });
+        document.getElementById("btn-right").addEventListener("click", function () { changeColor("text-right", "div-right"); });
+    </script>
+</body>
+</html>

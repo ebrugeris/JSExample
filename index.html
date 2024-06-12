@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: rgb(244, 255, 196);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 120px;
+
+        }
+        #container{
+            width: 50vw;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border: 1px solid gray;
+        }
+        .input{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #text{
+            width: 600px;
+            height: 200px;
+        }
+        button{
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 100px;
+            height: 40px;
+            background-color: rgb(175, 216, 227);
+
+        }
+        #word{
+            margin-top:10px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        #sentence{
+            margin-top:10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+        }
+        #character{
+            margin-top:10px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="input">
+        <div><h1>Paragraph</h1></div>
+        <textarea type="text" id="text" name="paragraf"></textarea>
+        <button onclick="checkout()">Check</button>
+    </div>
+        <div id="word">
+            <label for="text">Number of words in the paragraph :</label>
+            <label for="text" id="wordCount"></label>
+        </div>
+        <div id="character">
+            <label for="text">Number of characters in the paragraph :</label>
+            <label for="text" id="characterCount"></label>
+        </div>
+        <div id="sentence">
+            <label for="text">Number of sentences in the paragraph :</label>
+            <label for="text" id="sentenceCount"></label>
+        </div>
+    </div>
+    
+    <script>
+        function checkout(){
+            var text = document.getElementById("text").value
+            var wordsCount = 0
+            var charactersCount = 0
+            var sentencesCount = 0
+            for( i = 0; i < text.length; i++){
+                if(text[i] == " "){
+                    wordsCount++;
+                }
+                if(text[i] == "."){
+                    sentencesCount++;
+                }
+                if(text[i] != " "){
+                    charactersCount++;
+                }
+
+            }
+
+            wordsCount++;
+            var wordsResult = document.getElementById("wordCount")
+            wordsResult.innerHTML= wordsCount;
+
+            var sentencesResult = document.getElementById("sentenceCount")
+            sentencesResult.innerHTML = sentencesCount;
+
+            var characterResult = document.getElementById("characterCount")
+            characterResult.innerHTML = charactersCount;
+
+
+
+
+        }
+    </script>
+</body>
+</html>
